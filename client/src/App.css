@@ -1,0 +1,13 @@
+*{
+box-sizing: border-box;
+}
+:root {
+--blue: #4e8494;
+--brown: #fffbbd;
+--yellow: #fdfac8;
+}
+.App{
+display: flex;
+flex-direction: column;
+background-color: #fffddc;
+}
