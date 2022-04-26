@@ -1,12 +1,12 @@
 const express = require('express')
 
 const router = express.Router();
-
+const checkAuth = require('../checkAuth')
 const subscriptionsBL = require('../BL/subscriptionsBl')
 
 
 
-router.route('/').get(async function(req,resp)
+router.get('/',checkAuth,async function(req,resp)
 {
     let result = await subscriptionsBL.getSubscriptions()
     //console.log(result[0].Movies);

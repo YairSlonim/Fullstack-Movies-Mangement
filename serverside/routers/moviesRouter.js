@@ -1,12 +1,12 @@
 const express = require('express')
 
 const router = express.Router();
-
+const checkAuth = require('../checkAuth')
 const moviesBL = require('../BL/moviesDal')
 
 const Movie = require('../models/moviesModel')
 
-router.route('/').get(async function(req,resp)
+router.get('/',checkAuth,async function(req,resp)
 {
     let result = await moviesBL.getAllMovies()
     return resp.json(result)

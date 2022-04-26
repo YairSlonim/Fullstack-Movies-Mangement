@@ -1,7 +1,7 @@
 const express = require('express')
 
 const router = express.Router();
-
+const checkAuth = require('../checkAuth')
 const permissions = require('../models/permissionsModel')
 
 router.route('/').get(async function(req,resp)
