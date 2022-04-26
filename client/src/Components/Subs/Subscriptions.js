@@ -103,13 +103,22 @@ const navigate = useNavigate();
     if(localStorage.getItem("permissions").includes("View Subscriptions")){
     //console.log(MemberId)
     //need the names of all movies for the dropdown when the member sub to movie 
-    let result3 = await Axios.get("http://localhost:8000/api/movies")
+    let result3 = await Axios.get("http://localhost:8000/api/movies",{
+      headers: {
+        "access-token":
+          localStorage.getItem("access-token")}})
     let result3onlyName = result3.data.map(movie => { return {Name:movie.Name,id: movie._id} } )
     setMoviesNames(result3onlyName)
 
 
-    let result =await Axios.get("http://localhost:8000/api/members")
-    let result2 = await Axios.get("http://localhost:8000/api/subscriptions");
+    let result =await Axios.get("http://localhost:8000/api/members",{
+      headers: {
+        "access-token":
+          localStorage.getItem("access-token")}})
+    let result2 = await Axios.get("http://localhost:8000/api/subscriptions",{
+      headers: {
+        "access-token":
+          localStorage.getItem("access-token")}});
     let Members = result.data
     let Subscriptions = result2.data
      

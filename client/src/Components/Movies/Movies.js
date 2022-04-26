@@ -100,10 +100,16 @@ function Movies() {
 
   useEffect( async() =>{
     if(localStorage.getItem("permissions").includes("View Movies")){
-    let result = await Axios.get("http://localhost:8000/api/movies")
-    let result2 = await Axios.get("http://localhost:8000/api/subscriptions");
-    let Movies = result.data
-    let Subscriptions = result2.data
+      let result = await Axios.get("http://localhost:8000/api/movies",{
+        headers: {
+          "access-token":
+            localStorage.getItem("access-token")}})
+      let result2 = await Axios.get("http://localhost:8000/api/subscriptions",{
+        headers: {
+          "access-token":
+            localStorage.getItem("access-token")}});
+      let Movies = result.data
+      let Subscriptions = result2.data
 
       await Promise.all(Movies.map(async x =>{
          Object.assign(x,{subscribe:[]})

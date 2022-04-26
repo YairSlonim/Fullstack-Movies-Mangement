@@ -14,29 +14,31 @@ function Login() {
   const[errorMessage, setErrorMessage] = useState("")
 
   const Login = async () =>{
-        let res =await Axios.post(`http://localhost:8000/api/users`,{username: username, password:password})
-        if(res.data.loggedIn){
-          localStorage.setItem("loggedIn", true)
-          localStorage.setItem("username", res.data.result.username)
-          
-          let permissions = await Axios.get(`http://localhost:8000/api/permissions/${res.data.result._id}`) 
-          localStorage.setItem("permissions", [permissions.data.permissions])
-          let checkAdmin = await Axios.get("http://localhost:8000/api/users/userDetails",
-          {headers:{id: res.data.result._id}})
-          if(checkAdmin.data.FirstName == "Admin")
-          {
-            localStorage.setItem("Admin", true)
-          }else{
-            localStorage.setItem("Admin", false)
-          }
-          navigate("/movies")
-          window.location.reload();
-          
-        }else{
-          setErrorMessage(res.data.message)
-        }
+    let res =await Axios.post(`http://localhost:8000/api/users`,{username: username, password:password})
+    if(res.data.loggedIn){
+      
+      localStorage.setItem("loggedIn", true)
+      localStorage.setItem("username", res.data.result.username)
+      localStorage.setItem("access-token", res.data.token)
+      
+      let permissions = await Axios.get(`http://localhost:8000/api/permissions/${res.data.result._id}`) 
+      localStorage.setItem("permissions", [permissions.data.permissions])
+      let checkAdmin = await Axios.get("http://localhost:8000/api/users/userDetails",
+      {headers:{id: res.data.result._id}})
+      if(checkAdmin.data.FirstName == "Admin")
+      {
+        localStorage.setItem("Admin", true)
+      }else{
+        localStorage.setItem("Admin", false)
+      }
+      navigate("/movies")
+      window.location.reload();
+      
+    }else{
+      setErrorMessage(res.data.message)
+    }
 
-  }
+}
   
   useEffect(()=>{
 		if(localStorage.getItem("loggedIn")){

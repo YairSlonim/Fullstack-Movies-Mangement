@@ -33,18 +33,13 @@ const logOut =() =>{
   },[])
   return (
     <>
-    <div className="space_div navbar"></div>
-      
       <div className='NavBar_container'>
-      <Link to={"/"}>
-					<img className="Champiz_logo" src={Champiz} alt="Champiz" />
-				</Link>
         {showNav &&(
       <div className="links_container">
       <p className='p'>User Name: {localStorage.getItem("username")}</p>
       <Link className="Link" to={"/movies"}>
 							<h3
-								className="navbar_links animate__animated animate__zoomIn"
+								className="navbar_links"
                 style={ChosenPageStyle}>
 								Movies
 							</h3>
@@ -52,7 +47,7 @@ const logOut =() =>{
             
             <Link className="Link" to={"/subscriptions"}>
 							<h3
-								className="navbar_links animate__animated animate__zoomIn"
+								className="navbar_links "
                 style={ChosenPageStyle}>
 								Subscriptions
 							</h3>
@@ -60,7 +55,7 @@ const logOut =() =>{
             {(localStorage.getItem("Admin")) =="true" && (
             <Link className="Link" to={"/usersManagment"}>
 							<h3
-								className="navbar_links animate__animated animate__zoomIn"
+								className="navbar_links"
                 style={ChosenPageStyle}>
 								Users Managment
 							</h3>
@@ -69,7 +64,7 @@ const logOut =() =>{
             <Link className="Link" to="/" onClick={logOut}>
 							<h3
                 
-								className="navbar_links animate__animated animate__zoomIn"
+								className="navbar_links"
                 style={ChosenPageStyle}>
 								Log Out
 							</h3>
