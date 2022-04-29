@@ -63,6 +63,7 @@ router.route('/register').post(async function(req,resp)
         }
         else{
             resp.json("user doesn't exist")
+            return;
         } 
     
 })

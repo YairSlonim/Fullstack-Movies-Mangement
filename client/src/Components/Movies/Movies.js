@@ -146,14 +146,15 @@ function Movies() {
       <h2 className='h2'>Movies</h2>
     <button onClick={()=>addOrShow("show")}>All Movies</button>
       <button onClick={()=>addOrShow("add")}>Add Movie</button>
-      Find Movie:<input style={{padding: "5px", margin:"5px"}}  type="text" onChange={ e => {setNewMovies(
-               movies.filter((movie) =>{
-               if(movie.Name.includes(e.target.value))
-               return movie }) )}} />
+      
 
     {showMovies === true && (
       <div >
-
+        Find Movie:<input style={{padding: "5px", margin:"5px"}}  type="text" onChange={ e => {setNewMovies(
+               movies.filter((movie) =>{
+               if(movie.Name.includes(e.target.value))
+               return movie }) )}} />
+               
       {newMovies.map(x =>
           <Movie 
           movie={x}

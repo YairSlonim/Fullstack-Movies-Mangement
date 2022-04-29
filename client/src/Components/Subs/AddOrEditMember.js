@@ -11,13 +11,14 @@ function AddOrEditMember(props) {
       }
   
       const handleSubmit =(event) =>{
+        console.log(state)
        let MemberToUpdate = state
         props.handleUpdateMember(MemberToUpdate)
         event.preventDefault();
         
       }
       useEffect(()=>{
-        console.log(props)
+        
       },[])
   return (
     <div className='form-style-4'>

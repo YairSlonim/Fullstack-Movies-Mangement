@@ -32,7 +32,7 @@ function Register() {
     <div className='Register'>
         <div className='RegisterForm'>
             <input type="text"
-            placeholder="UserName..."
+            placeholder="username..."
             onChange={(event) =>{
                 setUsername(event.target.value)
             }}/>

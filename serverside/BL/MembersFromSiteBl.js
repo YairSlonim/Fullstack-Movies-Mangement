@@ -33,5 +33,5 @@ exports.getUsers = async function()
         })        
 }
 
-
+//this.getUsers()
 

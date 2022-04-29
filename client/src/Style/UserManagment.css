@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
 }
 .h2{
     display: flex;
@@ -30,7 +29,7 @@
 }
 
 .allUsers_container{
-    width: auto;
+    width: 100%;
 	font-size: 16px;
 	background: #76a2ff;
 	padding: 30px 50px 15px 10px;
